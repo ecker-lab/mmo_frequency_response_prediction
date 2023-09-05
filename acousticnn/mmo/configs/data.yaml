@@ -1,0 +1,54 @@
+sample1: {
+  n_masses: 2, 
+  sample_f: True,
+  f_per_sample: 200,
+  sample_m: True,
+  m_range: [1, 25],
+  sample_d: True,
+  d_range: [0.1, 1],
+  sample_k: True,
+  k_range: [1, 30],
+  normalize: True,
+  normalize_factor: 10
+  }
+sample2: {
+  n_masses: 3, 
+  sample_f: True,
+  f_per_sample: 200,
+  sample_m: True,
+  m_range: [1, 25],
+  sample_d: True,
+  d_range: [0.1, 1],
+  sample_k: True,
+  k_range: [1, 30],
+  normalize: True,
+  normalize_factor: 10
+  }
+
+sample4: {
+  n_masses: 5,
+  sample_f: True,
+  f_per_sample: 200,
+  sample_m: True,
+  m_range: [1, 25],
+  sample_d: True,
+  d_range: [0.1, 1],
+  sample_k: True,
+  k_range: [1, 30],
+  normalize: True,
+  normalize_factor: 10
+  }
+
+sample5: {
+  n_masses: 6, 
+  sample_f: True,
+  f_per_sample: 200,
+  sample_m: True,
+  m_range: [1, 25],
+  sample_d: True,
+  d_range: [0.1, 1],
+  sample_k: True,
+  k_range: [1, 30],
+  normalize: True,
+  normalize_factor: 10
+  }

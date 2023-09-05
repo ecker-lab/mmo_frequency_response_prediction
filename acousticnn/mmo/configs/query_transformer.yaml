@@ -1,0 +1,36 @@
+optimizer : {
+  type: AdamW,
+  kwargs: {
+  lr : 0.0025,
+  weight_decay : 0.005,
+  betas: [0.9, 0.95]
+}}
+
+scheduler: {
+  type: function,
+  kwargs: {
+    epochs: 1500,
+    initial_epochs : 50
+}}
+
+model : {
+  name: "ImplicitTransformer",
+  input_encoding: True,
+  encoding_dim: 16,
+  encoder: {
+    embed_dim: 66,
+    num_heads: 3,
+    depth: 4,
+    },
+  decoder: {
+    embed_dim: 99,
+    num_heads: 3,
+    depth: 3,
+    }
+}
+
+generation_frequency: 5000 #in number of epochs
+validation_frequency: 10
+batch_size : 16
+epochs : 1500
+gradient_clip: 10
