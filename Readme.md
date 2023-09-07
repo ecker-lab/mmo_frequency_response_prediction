@@ -44,7 +44,7 @@ to run a single training:
 
 ```
 cd acousticnn/mmo
-python run.py --config implicit_mlp.yaml --dir path/to/save_directory --encoding none --seed 0 --device cuda
+python run.py --config query_mlp.yaml --dir path/to/save_directory --encoding none --seed 0 --device cuda
 ```
 
 the --wildcard arg specifies the number of samples. The --encoding arg specifies whether the input parameters are encoded with a sinosoidal embedding function. To use the scalar parameters, choose --encoding none.
