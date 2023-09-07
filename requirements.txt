@@ -1,0 +1,11 @@
+timm
+munch 
+torchinfo 
+matplotlib 
+ipykernel 
+jupyter 
+transformers 
+scipy 
+wandb 
+h5py 
+hdf5plugin
