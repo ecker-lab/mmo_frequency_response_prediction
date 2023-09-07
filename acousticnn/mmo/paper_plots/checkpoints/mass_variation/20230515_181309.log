@@ -1,0 +1,27 @@
+2023-05-15 18:13:09,857 - INFO - Config:
+Namespace(config='configs/implicit_transformer.yaml', dir='experiments/mass_variation', epochs=100, device='cuda', seed=0, parameter_list='configs/data.yaml', wildcard=0, encoding='none', dir_name='mass_variation')
+2023-05-15 18:13:09,858 - INFO - Config:
+Munch({'optimizer': Munch({'type': 'AdamW', 'kwargs': Munch({'lr': 0.0025, 'weight_decay': 0.005, 'betas': [0.9, 0.95]})}), 'scheduler': Munch({'type': 'CosLR', 'kwargs': Munch({'epochs': 1500, 'initial_epochs': 50})}), 'model': Munch({'name': 'ImplicitTransformer', 'input_encoding': 'none', 'encoding_dim': 16, 'encoder': Munch({'embed_dim': 66, 'num_heads': 3, 'depth': 4}), 'decoder': Munch({'embed_dim': 99, 'num_heads': 3, 'depth': 3})}), 'generation_frequency': 5000, 'validation_frequency': 10, 'batch_size': 16, 'epochs': 1500, 'gradient_clip': 10})
+2023-05-15 18:13:27,160 - INFO - Epoch 0 training loss = 2.816e+04
+2023-05-15 18:13:27,545 - INFO - Validation loss = 2.042e+04
+2023-05-15 18:13:27,546 - INFO - best model
+2023-05-15 18:13:31,644 - INFO - Epoch 1 training loss = 1.453e+04
+2023-05-15 18:13:35,757 - INFO - Epoch 2 training loss = 809.6
+2023-05-15 18:13:39,848 - INFO - Epoch 3 training loss = 374.8
+2023-05-15 18:13:43,925 - INFO - Epoch 4 training loss = 303.8
+2023-05-15 18:13:48,004 - INFO - Epoch 5 training loss = 388.7
+2023-05-15 18:13:52,120 - INFO - Epoch 6 training loss = 280.8
+2023-05-15 18:13:56,192 - INFO - Epoch 7 training loss = 216.6
+2023-05-15 18:14:00,299 - INFO - Epoch 8 training loss = 195.2
+2023-05-15 18:14:04,423 - INFO - Epoch 9 training loss = 199.3
+2023-05-15 18:14:08,541 - INFO - Epoch 10 training loss = 168.3
+2023-05-15 18:14:08,926 - INFO - Validation loss = 201.3
+2023-05-15 18:14:08,926 - INFO - best model
+2023-05-15 18:14:13,066 - INFO - Epoch 11 training loss = 161.4
+2023-05-15 18:14:17,192 - INFO - Epoch 12 training loss = 194.5
+2023-05-15 18:14:21,268 - INFO - Epoch 13 training loss = 139.6
+2023-05-15 18:14:25,374 - INFO - Epoch 14 training loss = 124.7
+2023-05-15 18:14:29,492 - INFO - Epoch 15 training loss = 133.3
+2023-05-15 18:14:33,602 - INFO - Epoch 16 training loss = 132.6
+2023-05-15 18:14:37,708 - INFO - Epoch 17 training loss = 113.6
+2023-05-15 18:14:41,802 - INFO - Epoch 18 training loss = 104.9

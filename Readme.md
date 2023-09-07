@@ -50,4 +50,8 @@ python run.py --config query_mlp.yaml --dir path/to/save_directory --encoding no
 the --wildcard arg specifies the number of samples. The --encoding arg specifies whether the input parameters are encoded with a sinosoidal embedding function. To use the scalar parameters, choose --encoding none.
 To select the model architecture change the --config .yaml file arg. --device specifies whether to use cuda or cpu for training.
 
+## Paper plots
+
+The scripts to reproduce the plots of the paper can be found in "acousticnn/mmo/paper_plots".
+This folder contains the checkpoints of the trained networks as well as jupyter notebooks to create the plots 
 

@@ -1,0 +1,9 @@
+2023-05-15 17:55:33,270 - INFO - Config:
+Namespace(config='configs/implicit_transformer.yaml', dir='experiments/mass_variation', epochs=100, device='cuda', seed=0, parameter_list='configs/data.yaml', encoding='none', dir_name='mass_variation')
+2023-05-15 17:55:33,270 - INFO - Config:
+Munch({'optimizer': Munch({'type': 'AdamW', 'kwargs': Munch({'lr': 0.0025, 'weight_decay': 0.005, 'betas': [0.9, 0.95]})}), 'scheduler': Munch({'type': 'CosLR', 'kwargs': Munch({'epochs': 1500, 'initial_epochs': 50})}), 'model': Munch({'name': 'ImplicitTransformer', 'input_encoding': 'none', 'encoding_dim': 16, 'encoder': Munch({'embed_dim': 66, 'num_heads': 3, 'depth': 4}), 'decoder': Munch({'embed_dim': 99, 'num_heads': 3, 'depth': 3})}), 'generation_frequency': 5000, 'validation_frequency': 10, 'batch_size': 16, 'epochs': 1500, 'gradient_clip': 10})
+2023-05-15 17:55:51,252 - INFO - Epoch 0 training loss = 2.816e+04
+2023-05-15 17:55:51,567 - INFO - Validation loss = 1.669e+04
+2023-05-15 17:55:51,567 - INFO - best model
+2023-05-15 17:55:55,670 - INFO - Epoch 1 training loss = 1.453e+04
+2023-05-15 17:55:59,736 - INFO - Epoch 2 training loss = 805.8

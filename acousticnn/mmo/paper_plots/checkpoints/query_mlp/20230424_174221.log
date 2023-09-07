@@ -1,0 +1,625 @@
+2023-04-24 17:42:21,060 - INFO - Config:
+Namespace(config='configs/implicit_mlp.yaml', dir='/user/delden/acoustics/spp_ai_acoustics/acousticNN/experiments/arch/no_encoding/implicitmlp', epochs=100, device='cuda', seed=0, parameter_list='configs/data.yaml')
+2023-04-24 17:42:21,060 - INFO - Config:
+Munch({'optimizer': Munch({'type': 'AdamW', 'kwargs': Munch({'lr': 0.001, 'weight_decay': 0.005, 'betas': [0.9, 0.95]})}), 'scheduler': Munch({'type': 'CosLR', 'kwargs': Munch({'epochs': 500, 'initial_epochs': 25})}), 'model': Munch({'name': 'ImplicitMLP', 'input_encoding': False, 'encoding_dim': 16, 'embed_dim': 64, 'depth': 7, 'mlp_width': 256}), 'generation_frequency': 5001, 'validation_frequency': 10, 'batch_size': 16, 'epochs': 500, 'gradient_clip': 10})
+2023-04-24 17:42:33,707 - INFO - ==========================================================================================
+Layer (type:depth-idx)                   Output Shape              Param #
+==========================================================================================
+ImplicitMLP                              [16, 200, 4]              --
+├─GroupwiseProjection: 1-1               [3200, 15, 64]            --
+│    └─ModuleList: 2-1                   --                        --
+│    │    └─Linear: 3-1                  [3200, 4, 64]             128
+│    │    └─Linear: 3-2                  [3200, 5, 64]             128
+│    │    └─Linear: 3-3                  [3200, 5, 64]             128
+│    │    └─Linear: 3-4                  [3200, 1, 64]             128
+├─MLP: 1-2                               [3200, 256]               --
+│    └─Linear: 2-2                       [3200, 256]               246,016
+│    └─ReLU: 2-3                         [3200, 256]               --
+│    └─Dropout: 2-4                      [3200, 256]               --
+│    └─Linear: 2-5                       [3200, 256]               65,792
+│    └─ReLU: 2-6                         [3200, 256]               --
+│    └─Dropout: 2-7                      [3200, 256]               --
+│    └─Linear: 2-8                       [3200, 256]               65,792
+│    └─ReLU: 2-9                         [3200, 256]               --
+│    └─Dropout: 2-10                     [3200, 256]               --
+│    └─Linear: 2-11                      [3200, 256]               65,792
+│    └─ReLU: 2-12                        [3200, 256]               --
+│    └─Dropout: 2-13                     [3200, 256]               --
+│    └─Linear: 2-14                      [3200, 256]               65,792
+│    └─ReLU: 2-15                        [3200, 256]               --
+│    └─Dropout: 2-16                     [3200, 256]               --
+│    └─Linear: 2-17                      [3200, 256]               65,792
+│    └─ReLU: 2-18                        [3200, 256]               --
+│    └─Dropout: 2-19                     [3200, 256]               --
+│    └─Linear: 2-20                      [3200, 256]               65,792
+│    └─Dropout: 2-21                     [3200, 256]               --
+├─Linear: 1-3                            [3200, 4]                 1,028
+==========================================================================================
+Total params: 642,308
+Trainable params: 642,308
+Non-trainable params: 0
+Total mult-adds (G): 2.06
+==========================================================================================
+Input size (MB): 0.01
+Forward/backward pass size (MB): 70.55
+Params size (MB): 2.57
+Estimated Total Size (MB): 73.14
+==========================================================================================
+2023-04-24 17:42:34,488 - INFO - Epoch 0 training loss = 3.272e+03
+2023-04-24 17:42:34,553 - INFO - Validation loss = 3.159e+03
+2023-04-24 17:42:34,553 - INFO - best model
+2023-04-24 17:42:35,320 - INFO - Epoch 1 training loss = 3.03e+03
+2023-04-24 17:42:36,072 - INFO - Epoch 2 training loss = 665.7
+2023-04-24 17:42:36,824 - INFO - Epoch 3 training loss = 121.6
+2023-04-24 17:42:37,575 - INFO - Epoch 4 training loss = 97.93
+2023-04-24 17:42:38,326 - INFO - Epoch 5 training loss = 85.07
+2023-04-24 17:42:39,076 - INFO - Epoch 6 training loss = 71.7
+2023-04-24 17:42:39,827 - INFO - Epoch 7 training loss = 60.7
+2023-04-24 17:42:40,577 - INFO - Epoch 8 training loss = 48.85
+2023-04-24 17:42:41,329 - INFO - Epoch 9 training loss = 41.56
+2023-04-24 17:42:42,080 - INFO - Epoch 10 training loss = 37.34
+2023-04-24 17:42:42,144 - INFO - Validation loss = 29.76
+2023-04-24 17:42:42,144 - INFO - best model
+2023-04-24 17:42:42,910 - INFO - Epoch 11 training loss = 32.08
+2023-04-24 17:42:43,662 - INFO - Epoch 12 training loss = 29.86
+2023-04-24 17:42:44,413 - INFO - Epoch 13 training loss = 28.64
+2023-04-24 17:42:45,164 - INFO - Epoch 14 training loss = 24.9
+2023-04-24 17:42:45,915 - INFO - Epoch 15 training loss = 22.82
+2023-04-24 17:42:46,667 - INFO - Epoch 16 training loss = 21.63
+2023-04-24 17:42:47,419 - INFO - Epoch 17 training loss = 20.53
+2023-04-24 17:42:48,169 - INFO - Epoch 18 training loss = 20.82
+2023-04-24 17:42:48,920 - INFO - Epoch 19 training loss = 18.16
+2023-04-24 17:42:49,671 - INFO - Epoch 20 training loss = 17.86
+2023-04-24 17:42:49,735 - INFO - Validation loss = 19.21
+2023-04-24 17:42:49,735 - INFO - best model
+2023-04-24 17:42:50,500 - INFO - Epoch 21 training loss = 17.87
+2023-04-24 17:42:51,250 - INFO - Epoch 22 training loss = 16.3
+2023-04-24 17:42:51,999 - INFO - Epoch 23 training loss = 16.44
+2023-04-24 17:42:52,747 - INFO - Epoch 24 training loss = 17.12
+2023-04-24 17:42:53,494 - INFO - Epoch 25 training loss = 15.01
+2023-04-24 17:42:54,241 - INFO - Epoch 26 training loss = 14.64
+2023-04-24 17:42:54,989 - INFO - Epoch 27 training loss = 14.78
+2023-04-24 17:42:55,736 - INFO - Epoch 28 training loss = 12.61
+2023-04-24 17:42:56,484 - INFO - Epoch 29 training loss = 12.4
+2023-04-24 17:42:57,231 - INFO - Epoch 30 training loss = 11.57
+2023-04-24 17:42:57,295 - INFO - Validation loss = 20.92
+2023-04-24 17:42:58,042 - INFO - Epoch 31 training loss = 11.43
+2023-04-24 17:42:58,790 - INFO - Epoch 32 training loss = 9.614
+2023-04-24 17:42:59,537 - INFO - Epoch 33 training loss = 9.757
+2023-04-24 17:43:00,285 - INFO - Epoch 34 training loss = 9.286
+2023-04-24 17:43:01,032 - INFO - Epoch 35 training loss = 9.341
+2023-04-24 17:43:01,780 - INFO - Epoch 36 training loss = 8.536
+2023-04-24 17:43:02,527 - INFO - Epoch 37 training loss = 7.768
+2023-04-24 17:43:03,275 - INFO - Epoch 38 training loss = 7.886
+2023-04-24 17:43:04,022 - INFO - Epoch 39 training loss = 8.83
+2023-04-24 17:43:04,770 - INFO - Epoch 40 training loss = 7.504
+2023-04-24 17:43:04,833 - INFO - Validation loss = 7.46
+2023-04-24 17:43:04,833 - INFO - best model
+2023-04-24 17:43:05,595 - INFO - Epoch 41 training loss = 7.393
+2023-04-24 17:43:06,345 - INFO - Epoch 42 training loss = 7.564
+2023-04-24 17:43:07,096 - INFO - Epoch 43 training loss =  7.0
+2023-04-24 17:43:07,846 - INFO - Epoch 44 training loss = 6.821
+2023-04-24 17:43:08,598 - INFO - Epoch 45 training loss = 6.822
+2023-04-24 17:43:09,349 - INFO - Epoch 46 training loss = 6.648
+2023-04-24 17:43:10,101 - INFO - Epoch 47 training loss = 6.164
+2023-04-24 17:43:10,852 - INFO - Epoch 48 training loss = 6.426
+2023-04-24 17:43:11,604 - INFO - Epoch 49 training loss = 6.304
+2023-04-24 17:43:12,355 - INFO - Epoch 50 training loss = 5.959
+2023-04-24 17:43:12,419 - INFO - Validation loss = 4.956
+2023-04-24 17:43:12,419 - INFO - best model
+2023-04-24 17:43:13,185 - INFO - Epoch 51 training loss = 6.056
+2023-04-24 17:43:13,936 - INFO - Epoch 52 training loss = 5.367
+2023-04-24 17:43:14,688 - INFO - Epoch 53 training loss = 5.173
+2023-04-24 17:43:15,439 - INFO - Epoch 54 training loss = 5.922
+2023-04-24 17:43:16,191 - INFO - Epoch 55 training loss = 5.405
+2023-04-24 17:43:16,943 - INFO - Epoch 56 training loss = 5.42
+2023-04-24 17:43:17,694 - INFO - Epoch 57 training loss = 5.701
+2023-04-24 17:43:18,445 - INFO - Epoch 58 training loss = 5.353
+2023-04-24 17:43:19,196 - INFO - Epoch 59 training loss = 5.005
+2023-04-24 17:43:19,947 - INFO - Epoch 60 training loss = 4.863
+2023-04-24 17:43:20,011 - INFO - Validation loss = 4.859
+2023-04-24 17:43:20,011 - INFO - best model
+2023-04-24 17:43:20,776 - INFO - Epoch 61 training loss = 5.279
+2023-04-24 17:43:21,528 - INFO - Epoch 62 training loss = 4.653
+2023-04-24 17:43:22,279 - INFO - Epoch 63 training loss = 4.384
+2023-04-24 17:43:23,029 - INFO - Epoch 64 training loss = 4.479
+2023-04-24 17:43:23,780 - INFO - Epoch 65 training loss = 5.292
+2023-04-24 17:43:24,531 - INFO - Epoch 66 training loss = 4.821
+2023-04-24 17:43:25,281 - INFO - Epoch 67 training loss = 4.736
+2023-04-24 17:43:26,032 - INFO - Epoch 68 training loss = 4.698
+2023-04-24 17:43:26,783 - INFO - Epoch 69 training loss = 4.13
+2023-04-24 17:43:27,533 - INFO - Epoch 70 training loss = 4.264
+2023-04-24 17:43:27,597 - INFO - Validation loss = 5.38
+2023-04-24 17:43:28,348 - INFO - Epoch 71 training loss = 4.154
+2023-04-24 17:43:29,099 - INFO - Epoch 72 training loss = 4.301
+2023-04-24 17:43:29,849 - INFO - Epoch 73 training loss = 4.077
+2023-04-24 17:43:30,600 - INFO - Epoch 74 training loss = 4.125
+2023-04-24 17:43:31,351 - INFO - Epoch 75 training loss = 4.238
+2023-04-24 17:43:32,101 - INFO - Epoch 76 training loss = 4.322
+2023-04-24 17:43:32,852 - INFO - Epoch 77 training loss = 4.004
+2023-04-24 17:43:33,602 - INFO - Epoch 78 training loss = 4.263
+2023-04-24 17:43:34,347 - INFO - Epoch 79 training loss = 3.859
+2023-04-24 17:43:35,091 - INFO - Epoch 80 training loss = 3.749
+2023-04-24 17:43:35,155 - INFO - Validation loss = 3.783
+2023-04-24 17:43:35,155 - INFO - best model
+2023-04-24 17:43:35,912 - INFO - Epoch 81 training loss = 3.728
+2023-04-24 17:43:36,657 - INFO - Epoch 82 training loss = 3.869
+2023-04-24 17:43:37,401 - INFO - Epoch 83 training loss = 3.592
+2023-04-24 17:43:38,145 - INFO - Epoch 84 training loss = 3.762
+2023-04-24 17:43:38,889 - INFO - Epoch 85 training loss = 3.575
+2023-04-24 17:43:39,633 - INFO - Epoch 86 training loss = 3.753
+2023-04-24 17:43:40,377 - INFO - Epoch 87 training loss = 3.559
+2023-04-24 17:43:41,121 - INFO - Epoch 88 training loss = 3.633
+2023-04-24 17:43:41,866 - INFO - Epoch 89 training loss = 3.551
+2023-04-24 17:43:42,610 - INFO - Epoch 90 training loss = 3.628
+2023-04-24 17:43:42,673 - INFO - Validation loss = 4.634
+2023-04-24 17:43:43,418 - INFO - Epoch 91 training loss = 3.495
+2023-04-24 17:43:44,163 - INFO - Epoch 92 training loss = 3.763
+2023-04-24 17:43:44,908 - INFO - Epoch 93 training loss = 3.429
+2023-04-24 17:43:45,652 - INFO - Epoch 94 training loss = 3.311
+2023-04-24 17:43:46,397 - INFO - Epoch 95 training loss = 3.623
+2023-04-24 17:43:47,141 - INFO - Epoch 96 training loss = 3.165
+2023-04-24 17:43:47,886 - INFO - Epoch 97 training loss = 3.198
+2023-04-24 17:43:48,630 - INFO - Epoch 98 training loss = 3.072
+2023-04-24 17:43:49,374 - INFO - Epoch 99 training loss = 2.998
+2023-04-24 17:43:50,118 - INFO - Epoch 100 training loss = 3.243
+2023-04-24 17:43:50,195 - INFO - Validation loss = 3.248
+2023-04-24 17:43:50,195 - INFO - best model
+2023-04-24 17:43:50,952 - INFO - Epoch 101 training loss = 3.204
+2023-04-24 17:43:51,696 - INFO - Epoch 102 training loss = 3.384
+2023-04-24 17:43:52,440 - INFO - Epoch 103 training loss = 3.301
+2023-04-24 17:43:53,183 - INFO - Epoch 104 training loss = 2.983
+2023-04-24 17:43:53,927 - INFO - Epoch 105 training loss = 3.29
+2023-04-24 17:43:54,671 - INFO - Epoch 106 training loss = 2.904
+2023-04-24 17:43:55,416 - INFO - Epoch 107 training loss = 3.006
+2023-04-24 17:43:56,160 - INFO - Epoch 108 training loss = 2.762
+2023-04-24 17:43:56,904 - INFO - Epoch 109 training loss = 2.794
+2023-04-24 17:43:57,648 - INFO - Epoch 110 training loss = 3.01
+2023-04-24 17:43:57,711 - INFO - Validation loss = 3.152
+2023-04-24 17:43:57,712 - INFO - best model
+2023-04-24 17:43:58,470 - INFO - Epoch 111 training loss = 2.858
+2023-04-24 17:43:59,214 - INFO - Epoch 112 training loss = 2.904
+2023-04-24 17:43:59,958 - INFO - Epoch 113 training loss = 2.779
+2023-04-24 17:44:00,702 - INFO - Epoch 114 training loss = 2.776
+2023-04-24 17:44:01,446 - INFO - Epoch 115 training loss = 2.668
+2023-04-24 17:44:02,190 - INFO - Epoch 116 training loss = 2.82
+2023-04-24 17:44:02,934 - INFO - Epoch 117 training loss = 2.777
+2023-04-24 17:44:03,678 - INFO - Epoch 118 training loss = 2.76
+2023-04-24 17:44:04,422 - INFO - Epoch 119 training loss = 2.769
+2023-04-24 17:44:05,167 - INFO - Epoch 120 training loss = 2.638
+2023-04-24 17:44:05,230 - INFO - Validation loss = 2.682
+2023-04-24 17:44:05,230 - INFO - best model
+2023-04-24 17:44:06,002 - INFO - Epoch 121 training loss = 2.587
+2023-04-24 17:44:06,748 - INFO - Epoch 122 training loss = 2.588
+2023-04-24 17:44:07,494 - INFO - Epoch 123 training loss = 2.725
+2023-04-24 17:44:08,240 - INFO - Epoch 124 training loss = 2.548
+2023-04-24 17:44:08,986 - INFO - Epoch 125 training loss = 2.398
+2023-04-24 17:44:09,732 - INFO - Epoch 126 training loss = 2.449
+2023-04-24 17:44:10,478 - INFO - Epoch 127 training loss = 2.421
+2023-04-24 17:44:11,224 - INFO - Epoch 128 training loss = 2.611
+2023-04-24 17:44:11,970 - INFO - Epoch 129 training loss = 2.451
+2023-04-24 17:44:12,717 - INFO - Epoch 130 training loss = 2.376
+2023-04-24 17:44:12,781 - INFO - Validation loss = 3.097
+2023-04-24 17:44:13,528 - INFO - Epoch 131 training loss = 2.45
+2023-04-24 17:44:14,274 - INFO - Epoch 132 training loss = 2.234
+2023-04-24 17:44:15,019 - INFO - Epoch 133 training loss = 2.339
+2023-04-24 17:44:15,766 - INFO - Epoch 134 training loss = 2.295
+2023-04-24 17:44:16,512 - INFO - Epoch 135 training loss = 2.589
+2023-04-24 17:44:17,259 - INFO - Epoch 136 training loss = 2.286
+2023-04-24 17:44:18,007 - INFO - Epoch 137 training loss = 2.499
+2023-04-24 17:44:18,760 - INFO - Epoch 138 training loss = 2.26
+2023-04-24 17:44:19,512 - INFO - Epoch 139 training loss = 2.244
+2023-04-24 17:44:20,264 - INFO - Epoch 140 training loss = 2.192
+2023-04-24 17:44:20,328 - INFO - Validation loss = 3.207
+2023-04-24 17:44:21,081 - INFO - Epoch 141 training loss = 2.285
+2023-04-24 17:44:21,833 - INFO - Epoch 142 training loss = 2.148
+2023-04-24 17:44:22,585 - INFO - Epoch 143 training loss = 2.106
+2023-04-24 17:44:23,338 - INFO - Epoch 144 training loss = 2.063
+2023-04-24 17:44:24,090 - INFO - Epoch 145 training loss = 2.041
+2023-04-24 17:44:24,842 - INFO - Epoch 146 training loss = 2.101
+2023-04-24 17:44:25,595 - INFO - Epoch 147 training loss = 2.088
+2023-04-24 17:44:26,343 - INFO - Epoch 148 training loss = 1.981
+2023-04-24 17:44:27,088 - INFO - Epoch 149 training loss = 2.011
+2023-04-24 17:44:27,834 - INFO - Epoch 150 training loss = 2.004
+2023-04-24 17:44:27,898 - INFO - Validation loss = 2.307
+2023-04-24 17:44:27,898 - INFO - best model
+2023-04-24 17:44:28,658 - INFO - Epoch 151 training loss =  2.0
+2023-04-24 17:44:29,403 - INFO - Epoch 152 training loss = 2.141
+2023-04-24 17:44:30,149 - INFO - Epoch 153 training loss = 2.142
+2023-04-24 17:44:30,895 - INFO - Epoch 154 training loss = 1.975
+2023-04-24 17:44:31,641 - INFO - Epoch 155 training loss = 2.013
+2023-04-24 17:44:32,387 - INFO - Epoch 156 training loss = 1.935
+2023-04-24 17:44:33,132 - INFO - Epoch 157 training loss = 1.93
+2023-04-24 17:44:33,878 - INFO - Epoch 158 training loss = 1.857
+2023-04-24 17:44:34,624 - INFO - Epoch 159 training loss = 2.013
+2023-04-24 17:44:35,369 - INFO - Epoch 160 training loss = 2.021
+2023-04-24 17:44:35,433 - INFO - Validation loss = 2.864
+2023-04-24 17:44:36,180 - INFO - Epoch 161 training loss = 1.998
+2023-04-24 17:44:36,926 - INFO - Epoch 162 training loss = 1.845
+2023-04-24 17:44:37,672 - INFO - Epoch 163 training loss =  1.8
+2023-04-24 17:44:38,417 - INFO - Epoch 164 training loss = 1.857
+2023-04-24 17:44:39,163 - INFO - Epoch 165 training loss = 1.846
+2023-04-24 17:44:39,909 - INFO - Epoch 166 training loss = 1.681
+2023-04-24 17:44:40,658 - INFO - Epoch 167 training loss = 1.812
+2023-04-24 17:44:41,407 - INFO - Epoch 168 training loss = 1.781
+2023-04-24 17:44:42,156 - INFO - Epoch 169 training loss = 1.647
+2023-04-24 17:44:42,905 - INFO - Epoch 170 training loss = 1.743
+2023-04-24 17:44:42,968 - INFO - Validation loss = 2.223
+2023-04-24 17:44:42,969 - INFO - best model
+2023-04-24 17:44:43,732 - INFO - Epoch 171 training loss = 1.82
+2023-04-24 17:44:44,481 - INFO - Epoch 172 training loss = 1.742
+2023-04-24 17:44:45,230 - INFO - Epoch 173 training loss = 1.687
+2023-04-24 17:44:45,979 - INFO - Epoch 174 training loss = 1.758
+2023-04-24 17:44:46,728 - INFO - Epoch 175 training loss = 1.645
+2023-04-24 17:44:47,478 - INFO - Epoch 176 training loss = 1.618
+2023-04-24 17:44:48,226 - INFO - Epoch 177 training loss = 1.696
+2023-04-24 17:44:48,975 - INFO - Epoch 178 training loss = 1.634
+2023-04-24 17:44:49,724 - INFO - Epoch 179 training loss = 1.592
+2023-04-24 17:44:50,473 - INFO - Epoch 180 training loss = 1.662
+2023-04-24 17:44:50,537 - INFO - Validation loss = 2.781
+2023-04-24 17:44:51,287 - INFO - Epoch 181 training loss = 1.595
+2023-04-24 17:44:52,036 - INFO - Epoch 182 training loss = 1.571
+2023-04-24 17:44:52,785 - INFO - Epoch 183 training loss = 1.71
+2023-04-24 17:44:53,534 - INFO - Epoch 184 training loss = 1.526
+2023-04-24 17:44:54,283 - INFO - Epoch 185 training loss = 1.602
+2023-04-24 17:44:55,032 - INFO - Epoch 186 training loss = 1.568
+2023-04-24 17:44:55,780 - INFO - Epoch 187 training loss = 1.59
+2023-04-24 17:44:56,529 - INFO - Epoch 188 training loss = 1.484
+2023-04-24 17:44:57,277 - INFO - Epoch 189 training loss = 1.488
+2023-04-24 17:44:58,026 - INFO - Epoch 190 training loss = 1.548
+2023-04-24 17:44:58,090 - INFO - Validation loss = 2.353
+2023-04-24 17:44:58,839 - INFO - Epoch 191 training loss = 1.444
+2023-04-24 17:44:59,588 - INFO - Epoch 192 training loss = 1.464
+2023-04-24 17:45:00,336 - INFO - Epoch 193 training loss = 1.503
+2023-04-24 17:45:01,085 - INFO - Epoch 194 training loss = 1.467
+2023-04-24 17:45:01,834 - INFO - Epoch 195 training loss = 1.448
+2023-04-24 17:45:02,583 - INFO - Epoch 196 training loss = 1.428
+2023-04-24 17:45:03,331 - INFO - Epoch 197 training loss = 1.468
+2023-04-24 17:45:04,081 - INFO - Epoch 198 training loss = 1.456
+2023-04-24 17:45:04,829 - INFO - Epoch 199 training loss = 1.333
+2023-04-24 17:45:05,578 - INFO - Epoch 200 training loss = 1.318
+2023-04-24 17:45:05,642 - INFO - Validation loss = 2.319
+2023-04-24 17:45:06,391 - INFO - Epoch 201 training loss = 1.384
+2023-04-24 17:45:07,140 - INFO - Epoch 202 training loss = 1.348
+2023-04-24 17:45:07,889 - INFO - Epoch 203 training loss = 1.315
+2023-04-24 17:45:08,637 - INFO - Epoch 204 training loss = 1.322
+2023-04-24 17:45:09,386 - INFO - Epoch 205 training loss = 1.345
+2023-04-24 17:45:10,136 - INFO - Epoch 206 training loss = 1.275
+2023-04-24 17:45:10,884 - INFO - Epoch 207 training loss = 1.291
+2023-04-24 17:45:11,634 - INFO - Epoch 208 training loss = 1.314
+2023-04-24 17:45:12,382 - INFO - Epoch 209 training loss = 1.347
+2023-04-24 17:45:13,132 - INFO - Epoch 210 training loss = 1.283
+2023-04-24 17:45:13,195 - INFO - Validation loss = 1.797
+2023-04-24 17:45:13,195 - INFO - best model
+2023-04-24 17:45:13,958 - INFO - Epoch 211 training loss = 1.341
+2023-04-24 17:45:14,708 - INFO - Epoch 212 training loss = 1.193
+2023-04-24 17:45:15,457 - INFO - Epoch 213 training loss = 1.262
+2023-04-24 17:45:16,207 - INFO - Epoch 214 training loss = 1.233
+2023-04-24 17:45:16,956 - INFO - Epoch 215 training loss = 1.191
+2023-04-24 17:45:17,705 - INFO - Epoch 216 training loss = 1.273
+2023-04-24 17:45:18,450 - INFO - Epoch 217 training loss = 1.191
+2023-04-24 17:45:19,196 - INFO - Epoch 218 training loss = 1.237
+2023-04-24 17:45:19,942 - INFO - Epoch 219 training loss = 1.149
+2023-04-24 17:45:20,688 - INFO - Epoch 220 training loss = 1.183
+2023-04-24 17:45:20,752 - INFO - Validation loss = 1.726
+2023-04-24 17:45:20,752 - INFO - best model
+2023-04-24 17:45:21,511 - INFO - Epoch 221 training loss = 1.154
+2023-04-24 17:45:22,258 - INFO - Epoch 222 training loss = 1.15
+2023-04-24 17:45:23,004 - INFO - Epoch 223 training loss = 1.237
+2023-04-24 17:45:23,750 - INFO - Epoch 224 training loss = 1.162
+2023-04-24 17:45:24,496 - INFO - Epoch 225 training loss = 1.137
+2023-04-24 17:45:25,241 - INFO - Epoch 226 training loss = 1.038
+2023-04-24 17:45:25,987 - INFO - Epoch 227 training loss = 1.032
+2023-04-24 17:45:26,734 - INFO - Epoch 228 training loss = 1.092
+2023-04-24 17:45:27,486 - INFO - Epoch 229 training loss = 1.042
+2023-04-24 17:45:28,239 - INFO - Epoch 230 training loss = 1.125
+2023-04-24 17:45:28,303 - INFO - Validation loss = 1.76
+2023-04-24 17:45:29,055 - INFO - Epoch 231 training loss =  1.1
+2023-04-24 17:45:29,807 - INFO - Epoch 232 training loss = 1.093
+2023-04-24 17:45:30,559 - INFO - Epoch 233 training loss = 1.091
+2023-04-24 17:45:31,312 - INFO - Epoch 234 training loss = 1.02
+2023-04-24 17:45:32,064 - INFO - Epoch 235 training loss = 1.011
+2023-04-24 17:45:32,816 - INFO - Epoch 236 training loss = 1.054
+2023-04-24 17:45:33,569 - INFO - Epoch 237 training loss = 1.019
+2023-04-24 17:45:34,321 - INFO - Epoch 238 training loss = 0.9756
+2023-04-24 17:45:35,069 - INFO - Epoch 239 training loss = 0.993
+2023-04-24 17:45:35,815 - INFO - Epoch 240 training loss = 0.9716
+2023-04-24 17:45:35,879 - INFO - Validation loss = 1.735
+2023-04-24 17:45:36,625 - INFO - Epoch 241 training loss = 0.911
+2023-04-24 17:45:37,371 - INFO - Epoch 242 training loss = 0.9908
+2023-04-24 17:45:38,117 - INFO - Epoch 243 training loss = 0.977
+2023-04-24 17:45:38,863 - INFO - Epoch 244 training loss = 1.014
+2023-04-24 17:45:39,609 - INFO - Epoch 245 training loss = 0.9964
+2023-04-24 17:45:40,355 - INFO - Epoch 246 training loss = 0.9237
+2023-04-24 17:45:41,101 - INFO - Epoch 247 training loss = 0.9476
+2023-04-24 17:45:41,847 - INFO - Epoch 248 training loss = 0.8708
+2023-04-24 17:45:42,594 - INFO - Epoch 249 training loss = 0.8925
+2023-04-24 17:45:43,341 - INFO - Epoch 250 training loss = 0.8941
+2023-04-24 17:45:43,404 - INFO - Validation loss = 2.014
+2023-04-24 17:45:44,151 - INFO - Epoch 251 training loss = 0.9398
+2023-04-24 17:45:44,897 - INFO - Epoch 252 training loss = 0.8868
+2023-04-24 17:45:45,644 - INFO - Epoch 253 training loss = 0.912
+2023-04-24 17:45:46,390 - INFO - Epoch 254 training loss = 0.8272
+2023-04-24 17:45:47,137 - INFO - Epoch 255 training loss = 0.8431
+2023-04-24 17:45:47,883 - INFO - Epoch 256 training loss = 0.816
+2023-04-24 17:45:48,630 - INFO - Epoch 257 training loss = 0.8499
+2023-04-24 17:45:49,376 - INFO - Epoch 258 training loss = 0.8257
+2023-04-24 17:45:50,122 - INFO - Epoch 259 training loss = 0.8071
+2023-04-24 17:45:50,867 - INFO - Epoch 260 training loss = 0.8608
+2023-04-24 17:45:50,931 - INFO - Validation loss = 1.514
+2023-04-24 17:45:50,931 - INFO - best model
+2023-04-24 17:45:51,691 - INFO - Epoch 261 training loss = 0.7678
+2023-04-24 17:45:52,437 - INFO - Epoch 262 training loss = 0.8028
+2023-04-24 17:45:53,183 - INFO - Epoch 263 training loss = 0.7939
+2023-04-24 17:45:53,929 - INFO - Epoch 264 training loss = 0.7611
+2023-04-24 17:45:54,675 - INFO - Epoch 265 training loss = 0.8273
+2023-04-24 17:45:55,421 - INFO - Epoch 266 training loss = 0.7544
+2023-04-24 17:45:56,167 - INFO - Epoch 267 training loss = 0.7669
+2023-04-24 17:45:56,913 - INFO - Epoch 268 training loss = 0.7446
+2023-04-24 17:45:57,659 - INFO - Epoch 269 training loss = 0.7809
+2023-04-24 17:45:58,406 - INFO - Epoch 270 training loss = 0.7517
+2023-04-24 17:45:58,468 - INFO - Validation loss = 1.557
+2023-04-24 17:45:59,215 - INFO - Epoch 271 training loss = 0.7285
+2023-04-24 17:45:59,961 - INFO - Epoch 272 training loss = 0.7086
+2023-04-24 17:46:00,707 - INFO - Epoch 273 training loss = 0.7257
+2023-04-24 17:46:01,453 - INFO - Epoch 274 training loss = 0.6884
+2023-04-24 17:46:02,200 - INFO - Epoch 275 training loss = 0.728
+2023-04-24 17:46:02,946 - INFO - Epoch 276 training loss = 0.7007
+2023-04-24 17:46:03,692 - INFO - Epoch 277 training loss = 0.7121
+2023-04-24 17:46:04,438 - INFO - Epoch 278 training loss = 0.6736
+2023-04-24 17:46:05,184 - INFO - Epoch 279 training loss = 0.6665
+2023-04-24 17:46:05,930 - INFO - Epoch 280 training loss = 0.687
+2023-04-24 17:46:05,994 - INFO - Validation loss = 1.578
+2023-04-24 17:46:06,740 - INFO - Epoch 281 training loss = 0.7014
+2023-04-24 17:46:07,486 - INFO - Epoch 282 training loss = 0.663
+2023-04-24 17:46:08,233 - INFO - Epoch 283 training loss = 0.6524
+2023-04-24 17:46:08,978 - INFO - Epoch 284 training loss = 0.6426
+2023-04-24 17:46:09,725 - INFO - Epoch 285 training loss = 0.6457
+2023-04-24 17:46:10,472 - INFO - Epoch 286 training loss = 0.6898
+2023-04-24 17:46:11,218 - INFO - Epoch 287 training loss = 0.6159
+2023-04-24 17:46:11,964 - INFO - Epoch 288 training loss = 0.6251
+2023-04-24 17:46:12,711 - INFO - Epoch 289 training loss = 0.6088
+2023-04-24 17:46:13,458 - INFO - Epoch 290 training loss = 0.6202
+2023-04-24 17:46:13,522 - INFO - Validation loss = 1.605
+2023-04-24 17:46:14,269 - INFO - Epoch 291 training loss = 0.5918
+2023-04-24 17:46:15,015 - INFO - Epoch 292 training loss = 0.5975
+2023-04-24 17:46:15,762 - INFO - Epoch 293 training loss = 0.6045
+2023-04-24 17:46:16,508 - INFO - Epoch 294 training loss = 0.6105
+2023-04-24 17:46:17,255 - INFO - Epoch 295 training loss = 0.5842
+2023-04-24 17:46:18,001 - INFO - Epoch 296 training loss = 0.558
+2023-04-24 17:46:18,747 - INFO - Epoch 297 training loss = 0.5736
+2023-04-24 17:46:19,493 - INFO - Epoch 298 training loss = 0.5668
+2023-04-24 17:46:20,239 - INFO - Epoch 299 training loss = 0.5606
+2023-04-24 17:46:20,985 - INFO - Epoch 300 training loss = 0.5496
+2023-04-24 17:46:21,048 - INFO - Validation loss = 1.402
+2023-04-24 17:46:21,049 - INFO - best model
+2023-04-24 17:46:21,809 - INFO - Epoch 301 training loss = 0.5467
+2023-04-24 17:46:22,555 - INFO - Epoch 302 training loss = 0.5453
+2023-04-24 17:46:23,301 - INFO - Epoch 303 training loss = 0.5072
+2023-04-24 17:46:24,047 - INFO - Epoch 304 training loss = 0.5532
+2023-04-24 17:46:24,793 - INFO - Epoch 305 training loss = 0.5244
+2023-04-24 17:46:25,539 - INFO - Epoch 306 training loss = 0.5528
+2023-04-24 17:46:26,285 - INFO - Epoch 307 training loss = 0.5038
+2023-04-24 17:46:27,031 - INFO - Epoch 308 training loss = 0.5024
+2023-04-24 17:46:27,777 - INFO - Epoch 309 training loss = 0.4988
+2023-04-24 17:46:28,523 - INFO - Epoch 310 training loss = 0.4779
+2023-04-24 17:46:28,587 - INFO - Validation loss = 1.298
+2023-04-24 17:46:28,587 - INFO - best model
+2023-04-24 17:46:29,352 - INFO - Epoch 311 training loss = 0.4919
+2023-04-24 17:46:30,118 - INFO - Epoch 312 training loss = 0.4912
+2023-04-24 17:46:30,889 - INFO - Epoch 313 training loss = 0.4826
+2023-04-24 17:46:31,662 - INFO - Epoch 314 training loss = 0.4976
+2023-04-24 17:46:32,437 - INFO - Epoch 315 training loss = 0.492
+2023-04-24 17:46:33,209 - INFO - Epoch 316 training loss = 0.5195
+2023-04-24 17:46:33,979 - INFO - Epoch 317 training loss = 0.4855
+2023-04-24 17:46:34,755 - INFO - Epoch 318 training loss = 0.4582
+2023-04-24 17:46:35,527 - INFO - Epoch 319 training loss = 0.4684
+2023-04-24 17:46:36,316 - INFO - Epoch 320 training loss = 0.4585
+2023-04-24 17:46:36,381 - INFO - Validation loss = 1.278
+2023-04-24 17:46:36,381 - INFO - best model
+2023-04-24 17:46:37,172 - INFO - Epoch 321 training loss = 0.4297
+2023-04-24 17:46:37,962 - INFO - Epoch 322 training loss = 0.4485
+2023-04-24 17:46:38,735 - INFO - Epoch 323 training loss = 0.4212
+2023-04-24 17:46:39,515 - INFO - Epoch 324 training loss = 0.4433
+2023-04-24 17:46:40,296 - INFO - Epoch 325 training loss = 0.431
+2023-04-24 17:46:41,078 - INFO - Epoch 326 training loss = 0.4168
+2023-04-24 17:46:41,863 - INFO - Epoch 327 training loss = 0.4143
+2023-04-24 17:46:42,628 - INFO - Epoch 328 training loss = 0.4025
+2023-04-24 17:46:43,378 - INFO - Epoch 329 training loss = 0.4143
+2023-04-24 17:46:44,128 - INFO - Epoch 330 training loss = 0.4261
+2023-04-24 17:46:44,192 - INFO - Validation loss = 1.276
+2023-04-24 17:46:44,192 - INFO - best model
+2023-04-24 17:46:44,957 - INFO - Epoch 331 training loss = 0.4081
+2023-04-24 17:46:45,708 - INFO - Epoch 332 training loss = 0.4068
+2023-04-24 17:46:46,458 - INFO - Epoch 333 training loss = 0.4031
+2023-04-24 17:46:47,208 - INFO - Epoch 334 training loss = 0.4087
+2023-04-24 17:46:47,959 - INFO - Epoch 335 training loss = 0.3892
+2023-04-24 17:46:48,710 - INFO - Epoch 336 training loss = 0.3959
+2023-04-24 17:46:49,460 - INFO - Epoch 337 training loss = 0.3858
+2023-04-24 17:46:50,210 - INFO - Epoch 338 training loss = 0.3782
+2023-04-24 17:46:50,960 - INFO - Epoch 339 training loss = 0.3628
+2023-04-24 17:46:51,710 - INFO - Epoch 340 training loss = 0.3929
+2023-04-24 17:46:51,774 - INFO - Validation loss = 1.202
+2023-04-24 17:46:51,774 - INFO - best model
+2023-04-24 17:46:52,538 - INFO - Epoch 341 training loss = 0.3662
+2023-04-24 17:46:53,288 - INFO - Epoch 342 training loss = 0.3723
+2023-04-24 17:46:54,038 - INFO - Epoch 343 training loss = 0.374
+2023-04-24 17:46:54,788 - INFO - Epoch 344 training loss = 0.3593
+2023-04-24 17:46:55,539 - INFO - Epoch 345 training loss = 0.3581
+2023-04-24 17:46:56,289 - INFO - Epoch 346 training loss = 0.3518
+2023-04-24 17:46:57,038 - INFO - Epoch 347 training loss = 0.346
+2023-04-24 17:46:57,789 - INFO - Epoch 348 training loss = 0.3522
+2023-04-24 17:46:58,539 - INFO - Epoch 349 training loss = 0.3488
+2023-04-24 17:46:59,289 - INFO - Epoch 350 training loss = 0.3422
+2023-04-24 17:46:59,352 - INFO - Validation loss = 1.224
+2023-04-24 17:47:00,103 - INFO - Epoch 351 training loss = 0.322
+2023-04-24 17:47:00,854 - INFO - Epoch 352 training loss = 0.3367
+2023-04-24 17:47:01,604 - INFO - Epoch 353 training loss = 0.3266
+2023-04-24 17:47:02,354 - INFO - Epoch 354 training loss = 0.3341
+2023-04-24 17:47:03,104 - INFO - Epoch 355 training loss = 0.3283
+2023-04-24 17:47:03,854 - INFO - Epoch 356 training loss = 0.3295
+2023-04-24 17:47:04,604 - INFO - Epoch 357 training loss = 0.3179
+2023-04-24 17:47:05,353 - INFO - Epoch 358 training loss = 0.3203
+2023-04-24 17:47:06,104 - INFO - Epoch 359 training loss = 0.3047
+2023-04-24 17:47:06,854 - INFO - Epoch 360 training loss = 0.3146
+2023-04-24 17:47:06,918 - INFO - Validation loss = 1.213
+2023-04-24 17:47:07,668 - INFO - Epoch 361 training loss = 0.306
+2023-04-24 17:47:08,418 - INFO - Epoch 362 training loss = 0.3042
+2023-04-24 17:47:09,168 - INFO - Epoch 363 training loss = 0.2964
+2023-04-24 17:47:09,918 - INFO - Epoch 364 training loss = 0.2978
+2023-04-24 17:47:10,669 - INFO - Epoch 365 training loss = 0.2988
+2023-04-24 17:47:11,419 - INFO - Epoch 366 training loss = 0.2927
+2023-04-24 17:47:12,170 - INFO - Epoch 367 training loss = 0.2893
+2023-04-24 17:47:12,920 - INFO - Epoch 368 training loss = 0.2889
+2023-04-24 17:47:13,670 - INFO - Epoch 369 training loss = 0.2878
+2023-04-24 17:47:14,421 - INFO - Epoch 370 training loss = 0.2772
+2023-04-24 17:47:14,485 - INFO - Validation loss = 1.184
+2023-04-24 17:47:14,485 - INFO - best model
+2023-04-24 17:47:15,249 - INFO - Epoch 371 training loss = 0.2788
+2023-04-24 17:47:16,000 - INFO - Epoch 372 training loss = 0.2818
+2023-04-24 17:47:16,750 - INFO - Epoch 373 training loss = 0.28
+2023-04-24 17:47:17,499 - INFO - Epoch 374 training loss = 0.2726
+2023-04-24 17:47:18,250 - INFO - Epoch 375 training loss = 0.2747
+2023-04-24 17:47:18,999 - INFO - Epoch 376 training loss = 0.2762
+2023-04-24 17:47:19,749 - INFO - Epoch 377 training loss = 0.2653
+2023-04-24 17:47:20,499 - INFO - Epoch 378 training loss = 0.266
+2023-04-24 17:47:21,248 - INFO - Epoch 379 training loss = 0.2723
+2023-04-24 17:47:21,998 - INFO - Epoch 380 training loss = 0.2578
+2023-04-24 17:47:22,063 - INFO - Validation loss = 1.12
+2023-04-24 17:47:22,063 - INFO - best model
+2023-04-24 17:47:22,826 - INFO - Epoch 381 training loss = 0.2582
+2023-04-24 17:47:23,576 - INFO - Epoch 382 training loss = 0.2605
+2023-04-24 17:47:24,327 - INFO - Epoch 383 training loss = 0.254
+2023-04-24 17:47:25,077 - INFO - Epoch 384 training loss = 0.2521
+2023-04-24 17:47:25,826 - INFO - Epoch 385 training loss = 0.2562
+2023-04-24 17:47:26,577 - INFO - Epoch 386 training loss = 0.2489
+2023-04-24 17:47:27,327 - INFO - Epoch 387 training loss = 0.2475
+2023-04-24 17:47:28,077 - INFO - Epoch 388 training loss = 0.245
+2023-04-24 17:47:28,826 - INFO - Epoch 389 training loss = 0.2407
+2023-04-24 17:47:29,577 - INFO - Epoch 390 training loss = 0.2458
+2023-04-24 17:47:29,640 - INFO - Validation loss = 1.09
+2023-04-24 17:47:29,640 - INFO - best model
+2023-04-24 17:47:30,405 - INFO - Epoch 391 training loss = 0.2378
+2023-04-24 17:47:31,155 - INFO - Epoch 392 training loss = 0.2416
+2023-04-24 17:47:31,905 - INFO - Epoch 393 training loss = 0.2355
+2023-04-24 17:47:32,655 - INFO - Epoch 394 training loss = 0.2341
+2023-04-24 17:47:33,402 - INFO - Epoch 395 training loss = 0.2377
+2023-04-24 17:47:34,149 - INFO - Epoch 396 training loss = 0.2331
+2023-04-24 17:47:34,896 - INFO - Epoch 397 training loss = 0.2327
+2023-04-24 17:47:35,643 - INFO - Epoch 398 training loss = 0.227
+2023-04-24 17:47:36,390 - INFO - Epoch 399 training loss = 0.2294
+2023-04-24 17:47:37,136 - INFO - Epoch 400 training loss = 0.2237
+2023-04-24 17:47:37,200 - INFO - Validation loss = 1.103
+2023-04-24 17:47:37,947 - INFO - Epoch 401 training loss = 0.2268
+2023-04-24 17:47:38,694 - INFO - Epoch 402 training loss = 0.2217
+2023-04-24 17:47:39,441 - INFO - Epoch 403 training loss = 0.2232
+2023-04-24 17:47:40,187 - INFO - Epoch 404 training loss = 0.2199
+2023-04-24 17:47:40,934 - INFO - Epoch 405 training loss = 0.2198
+2023-04-24 17:47:41,681 - INFO - Epoch 406 training loss = 0.2194
+2023-04-24 17:47:42,429 - INFO - Epoch 407 training loss = 0.2159
+2023-04-24 17:47:43,176 - INFO - Epoch 408 training loss = 0.2176
+2023-04-24 17:47:43,923 - INFO - Epoch 409 training loss = 0.2162
+2023-04-24 17:47:44,670 - INFO - Epoch 410 training loss = 0.2114
+2023-04-24 17:47:44,734 - INFO - Validation loss = 1.098
+2023-04-24 17:47:45,482 - INFO - Epoch 411 training loss = 0.2129
+2023-04-24 17:47:46,230 - INFO - Epoch 412 training loss = 0.2118
+2023-04-24 17:47:46,980 - INFO - Epoch 413 training loss = 0.2078
+2023-04-24 17:47:47,730 - INFO - Epoch 414 training loss = 0.2077
+2023-04-24 17:47:48,481 - INFO - Epoch 415 training loss = 0.2052
+2023-04-24 17:47:49,231 - INFO - Epoch 416 training loss = 0.2045
+2023-04-24 17:47:49,981 - INFO - Epoch 417 training loss = 0.2069
+2023-04-24 17:47:50,731 - INFO - Epoch 418 training loss = 0.2026
+2023-04-24 17:47:51,480 - INFO - Epoch 419 training loss = 0.2054
+2023-04-24 17:47:52,231 - INFO - Epoch 420 training loss = 0.2007
+2023-04-24 17:47:52,294 - INFO - Validation loss = 1.065
+2023-04-24 17:47:52,294 - INFO - best model
+2023-04-24 17:47:53,058 - INFO - Epoch 421 training loss = 0.1976
+2023-04-24 17:47:53,809 - INFO - Epoch 422 training loss = 0.198
+2023-04-24 17:47:54,559 - INFO - Epoch 423 training loss = 0.1977
+2023-04-24 17:47:55,309 - INFO - Epoch 424 training loss = 0.1987
+2023-04-24 17:47:56,059 - INFO - Epoch 425 training loss = 0.1974
+2023-04-24 17:47:56,809 - INFO - Epoch 426 training loss = 0.1969
+2023-04-24 17:47:57,559 - INFO - Epoch 427 training loss = 0.1944
+2023-04-24 17:47:58,308 - INFO - Epoch 428 training loss = 0.1955
+2023-04-24 17:47:59,059 - INFO - Epoch 429 training loss = 0.1924
+2023-04-24 17:47:59,808 - INFO - Epoch 430 training loss = 0.1934
+2023-04-24 17:47:59,884 - INFO - Validation loss = 1.068
+2023-04-24 17:48:00,635 - INFO - Epoch 431 training loss = 0.192
+2023-04-24 17:48:01,382 - INFO - Epoch 432 training loss = 0.1914
+2023-04-24 17:48:02,129 - INFO - Epoch 433 training loss = 0.1896
+2023-04-24 17:48:02,876 - INFO - Epoch 434 training loss = 0.1892
+2023-04-24 17:48:03,623 - INFO - Epoch 435 training loss = 0.1882
+2023-04-24 17:48:04,371 - INFO - Epoch 436 training loss = 0.1881
+2023-04-24 17:48:05,118 - INFO - Epoch 437 training loss = 0.1878
+2023-04-24 17:48:05,865 - INFO - Epoch 438 training loss = 0.1864
+2023-04-24 17:48:06,612 - INFO - Epoch 439 training loss = 0.1867
+2023-04-24 17:48:07,359 - INFO - Epoch 440 training loss = 0.185
+2023-04-24 17:48:07,423 - INFO - Validation loss = 1.067
+2023-04-24 17:48:08,170 - INFO - Epoch 441 training loss = 0.1848
+2023-04-24 17:48:08,917 - INFO - Epoch 442 training loss = 0.1844
+2023-04-24 17:48:09,664 - INFO - Epoch 443 training loss = 0.1841
+2023-04-24 17:48:10,414 - INFO - Epoch 444 training loss = 0.1821
+2023-04-24 17:48:11,165 - INFO - Epoch 445 training loss = 0.1815
+2023-04-24 17:48:11,915 - INFO - Epoch 446 training loss = 0.1808
+2023-04-24 17:48:12,666 - INFO - Epoch 447 training loss = 0.1805
+2023-04-24 17:48:13,417 - INFO - Epoch 448 training loss = 0.1805
+2023-04-24 17:48:14,166 - INFO - Epoch 449 training loss = 0.1798
+2023-04-24 17:48:14,916 - INFO - Epoch 450 training loss = 0.1793
+2023-04-24 17:48:14,980 - INFO - Validation loss = 1.057
+2023-04-24 17:48:14,980 - INFO - best model
+2023-04-24 17:48:15,743 - INFO - Epoch 451 training loss = 0.1784
+2023-04-24 17:48:16,493 - INFO - Epoch 452 training loss = 0.1781
+2023-04-24 17:48:17,243 - INFO - Epoch 453 training loss = 0.1776
+2023-04-24 17:48:17,992 - INFO - Epoch 454 training loss = 0.1774
+2023-04-24 17:48:18,741 - INFO - Epoch 455 training loss = 0.1769
+2023-04-24 17:48:19,490 - INFO - Epoch 456 training loss = 0.1762
+2023-04-24 17:48:20,239 - INFO - Epoch 457 training loss = 0.1758
+2023-04-24 17:48:20,988 - INFO - Epoch 458 training loss = 0.1749
+2023-04-24 17:48:21,737 - INFO - Epoch 459 training loss = 0.1747
+2023-04-24 17:48:22,487 - INFO - Epoch 460 training loss = 0.1744
+2023-04-24 17:48:22,550 - INFO - Validation loss = 1.058
+2023-04-24 17:48:23,300 - INFO - Epoch 461 training loss = 0.1743
+2023-04-24 17:48:24,049 - INFO - Epoch 462 training loss = 0.174
+2023-04-24 17:48:24,798 - INFO - Epoch 463 training loss = 0.173
+2023-04-24 17:48:25,547 - INFO - Epoch 464 training loss = 0.1732
+2023-04-24 17:48:26,297 - INFO - Epoch 465 training loss = 0.1727
+2023-04-24 17:48:27,046 - INFO - Epoch 466 training loss = 0.1718
+2023-04-24 17:48:27,795 - INFO - Epoch 467 training loss = 0.1721
+2023-04-24 17:48:28,544 - INFO - Epoch 468 training loss = 0.1714
+2023-04-24 17:48:29,290 - INFO - Epoch 469 training loss = 0.1714
+2023-04-24 17:48:30,039 - INFO - Epoch 470 training loss = 0.171
+2023-04-24 17:48:30,103 - INFO - Validation loss = 1.052
+2023-04-24 17:48:30,103 - INFO - best model
+2023-04-24 17:48:30,867 - INFO - Epoch 471 training loss = 0.1706
+2023-04-24 17:48:31,616 - INFO - Epoch 472 training loss = 0.1701
+2023-04-24 17:48:32,362 - INFO - Epoch 473 training loss = 0.1699
+2023-04-24 17:48:33,108 - INFO - Epoch 474 training loss = 0.1698
+2023-04-24 17:48:33,854 - INFO - Epoch 475 training loss = 0.1695
+2023-04-24 17:48:34,601 - INFO - Epoch 476 training loss = 0.1693
+2023-04-24 17:48:35,351 - INFO - Epoch 477 training loss = 0.1688
+2023-04-24 17:48:36,100 - INFO - Epoch 478 training loss = 0.1686
+2023-04-24 17:48:36,850 - INFO - Epoch 479 training loss = 0.1685
+2023-04-24 17:48:37,599 - INFO - Epoch 480 training loss = 0.1685
+2023-04-24 17:48:37,663 - INFO - Validation loss = 1.045
+2023-04-24 17:48:37,663 - INFO - best model
+2023-04-24 17:48:38,425 - INFO - Epoch 481 training loss = 0.168
+2023-04-24 17:48:39,174 - INFO - Epoch 482 training loss = 0.1678
+2023-04-24 17:48:39,924 - INFO - Epoch 483 training loss = 0.1677
+2023-04-24 17:48:40,673 - INFO - Epoch 484 training loss = 0.1675
+2023-04-24 17:48:41,422 - INFO - Epoch 485 training loss = 0.1675
+2023-04-24 17:48:42,172 - INFO - Epoch 486 training loss = 0.1673
+2023-04-24 17:48:42,922 - INFO - Epoch 487 training loss = 0.1672
+2023-04-24 17:48:43,672 - INFO - Epoch 488 training loss = 0.167
+2023-04-24 17:48:44,421 - INFO - Epoch 489 training loss = 0.1668
+2023-04-24 17:48:45,171 - INFO - Epoch 490 training loss = 0.1667
+2023-04-24 17:48:45,235 - INFO - Validation loss = 1.046
+2023-04-24 17:48:45,985 - INFO - Epoch 491 training loss = 0.1665
+2023-04-24 17:48:46,735 - INFO - Epoch 492 training loss = 0.1665
+2023-04-24 17:48:47,481 - INFO - Epoch 493 training loss = 0.1664
+2023-04-24 17:48:48,229 - INFO - Epoch 494 training loss = 0.1663
+2023-04-24 17:48:48,976 - INFO - Epoch 495 training loss = 0.1663
+2023-04-24 17:48:49,723 - INFO - Epoch 496 training loss = 0.1661
+2023-04-24 17:48:50,470 - INFO - Epoch 497 training loss = 0.1661
+2023-04-24 17:48:51,217 - INFO - Epoch 498 training loss = 0.1661
+2023-04-24 17:48:51,963 - INFO - Epoch 499 training loss = 0.1661
+2023-04-24 17:48:52,013 - INFO - Validation loss = 1.045
