@@ -11,8 +11,7 @@ investigations suggest that the transformer architecture is better suited, in te
 handle multiple system configurations in a single model."
 
 
-TODO add Link to Journal article
-
+The article is available from:  https://doi.org/10.1002/pamm.202300091
 ## Setup 
 
 To perform the training on gpus please make sure to have a cuda-capable system (https://developer.nvidia.com/cuda-zone)
